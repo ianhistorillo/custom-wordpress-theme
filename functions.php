@@ -34,5 +34,6 @@ function corporate_landing_scripts() {
         return $tag;
     }, 10, 2);
 }
+
 add_action('wp_enqueue_scripts', 'corporate_landing_scripts');
 ?>

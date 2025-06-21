@@ -1,0 +1,13 @@
+@font-face {
+	font-family: 'Knewave-Regular';
+	src: url('../assets/fonts/Knewave-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'Jersey10-Regular';
+	src: url('../assets/fonts/Jersey10-Regular.ttf');
+}
+
+@mixin Jersey10-Regular {
+	font-family: 'Jersey10-Regular', sans-serif;
+}
