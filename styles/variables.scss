@@ -7,10 +7,6 @@ $primary-yellow: #ffbc13;
 $black: #000000;
 $white: #ffffff;
 
-// Typography
-$font-primary: 'Montserrat', sans-serif;
-$font-display: 'Jersey 10', cursive;
-
 // Spacing
 $spacing-xs: 8px;
 $spacing-sm: 16px;
@@ -24,6 +20,32 @@ $mobile: 480px;
 $tablet: 768px;
 $desktop: 1024px;
 $large: 1200px;
+
+/** Media Queries **/
+
+@mixin desktop-lg {
+	@media (max-width: $large) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (max-width: $desktop) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (max-width: $tablet) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media (max-width: $mobile) {
+		@content;
+	}
+}
 
 // Animations
 $transition-fast: 0.2s ease;
