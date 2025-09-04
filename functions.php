@@ -21,6 +21,15 @@ function corporate_landing_scripts() {
             null,
             true
         );
+        
+        // chatbot.js
+        wp_enqueue_script(
+            'chatbot-js',
+            get_template_directory_uri() . '/js/chatbot.js',
+            array(), // dependencies (empty means none)
+            null,    // version (null = no versioning)
+            true     // load in footer
+        );
     }
 
     // Enqueue if other page (by slug)
