@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const messagesEl = document.getElementById('chat-messages');
     const inputEl = document.getElementById('chat-input');
     const sendBtn = document.getElementById('chat-send');
-
-    console.log(inputEl)
   
     // ===== 4. Add message helper =====
     function addMessage(text, sender) {
@@ -20,12 +18,14 @@ document.addEventListener('DOMContentLoaded', function() {
     async function sendMessage() {
       const text = inputEl.value.trim();
       if (!text) return;
+
+      console.log(text)
   
       addMessage(text, 'user');
       inputEl.value = '';
   
       try {
-        const res = await fetch('https://n8n-ianhistorillo.onrender.com/webhook-test/chatbot', {
+        const res = await fetch('https://n8n-ianhistorillo.onrender.com/webhook/chatbot', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ message: text })
