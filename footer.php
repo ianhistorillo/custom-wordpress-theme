@@ -2,13 +2,18 @@
   
 
       <div id="chat-widget">
-        <div id="chat-header">Chat with us</div>
+      <div id="chat-header">
+        Chat with us
+        <button id="chat-toggle">−</button>
+      </div>
+      <div id="chat-body">
         <div id="chat-messages"></div>
         <div id="chat-input-area">
           <input type="text" id="chat-input" placeholder="Type your message..." />
           <button id="chat-send">Send</button>
         </div>
       </div>
+    </div>
   </body>
 </html>
 <?php wp_footer(); ?>

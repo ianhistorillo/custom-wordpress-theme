@@ -11,8 +11,13 @@
   border: 1px solid rgba($white, 0.1);
   border-radius: 20px;
   box-shadow: 0 8px 25px rgba($black, 0.4);
-  overflow: hidden;
   z-index: 3000;
+
+  &.minimized {
+    #chat-body {
+      display: none;
+    }
+  }
 }
 
 #chat-header {
@@ -21,17 +26,54 @@
   color: $white;
   font-size: 1.6rem;
   padding: $spacing-sm $spacing-md;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border-bottom: 1px solid rgba($white, 0.2);
+
+  #chat-toggle {
+    background: transparent;
+    border: none;
+    color: $white;
+    font-size: 1.4rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+#chat-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0; // ✅ critical for flex scrolling
 }
 
 #chat-messages {
   flex: 1;
+  min-height: 0; // ✅ allows flex child to shrink properly
   padding: $spacing-md;
-  overflow-y: auto;
+  overflow-y: auto; // ✅ scrollable
   display: flex;
   flex-direction: column;
   gap: $spacing-sm;
+
+  // ✅ Custom scrollbar styling
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $primary-green;
+    border-radius: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba($white, 0.05);
+  }
 
   .chat-message {
     max-width: 80%;
@@ -62,6 +104,7 @@
   padding: $spacing-sm;
   background: rgba($black, 0.7);
   border-top: 1px solid rgba($white, 0.1);
+  flex-shrink: 0; // ✅ prevents input box from shrinking
 
   #chat-input {
     flex: 1;
@@ -100,6 +143,28 @@
       transform: translateY(-2px);
     }
   }
+}
+
+.chat-buttons {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chat-button {
+  padding: 6px 12px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.chat-button:hover {
+  background: #45a049;
 }
 
 // Mobile adjustments
